@@ -13,14 +13,15 @@ class Program
         // Create a new order
         Order order = new Order(customer, address);
 
+        // Display packing and shipping labels
+        order.GetPackingLabel();
+        order.GetShippingLabel();
+
         // Add items to the order
         order.AddProduct(new Product("Bicycle", "B01", 999.99, 1));
         order.AddProduct(new Product("Trailor", "T02", 25.50, 2));
         order.AddProduct(new Product("Laptop", "L03", 45.00, 1));
-
-        order.GetPackingLabel();
-        
-        order.GetShippingLabel();
+        order.AddProduct(new Product("Monitor", "M04", 155.75, 1));     
 
         // Display the order summary
         order.DisplayOrderDetails();
