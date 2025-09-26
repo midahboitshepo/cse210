@@ -13,10 +13,6 @@ class Program
         // Create a new order
         Order order = new Order(customer, address);
 
-        // Display packing and shipping labels
-        order.GetPackingLabel();
-        order.GetShippingLabel();
-
         // Add items to the order
         order.AddProduct(new Product("Bicycle", "B01", 999.99, 1));
         order.AddProduct(new Product("Trailor", "T02", 25.50, 2));
@@ -29,6 +25,12 @@ class Program
         // Calculate and display the total cost
         decimal totalCost = (decimal)order.CalculateTotalPrice();
         Console.WriteLine($"Total Cost Including Shipping: ${totalCost:F2}");
+
+        Console.WriteLine();
+
+        // Display packing and shipping labels
+        order.GetPackingLabel();
+        order.GetShippingLabel();
 
         Console.WriteLine("Thank you for using the Online Ordering System!");
     }
