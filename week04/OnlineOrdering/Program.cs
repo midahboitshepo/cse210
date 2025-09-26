@@ -30,7 +30,10 @@ class Program
 
         // Display packing and shipping labels
         order.GetPackingLabel();
+        Console.WriteLine();
         order.GetShippingLabel();
+        
+        Console.WriteLine();
 
         Console.WriteLine("Thank you for using the Online Ordering System!");
     }
