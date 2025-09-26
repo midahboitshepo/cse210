@@ -18,11 +18,17 @@ class Program
         order.AddProduct(new Product("Trailor", "T02", 25.50, 2));
         order.AddProduct(new Product("Laptop", "L03", 45.00, 1));
 
+        order.GetPackingLabel();
+        
+        order.GetShippingLabel();
+
         // Display the order summary
         order.DisplayOrderDetails();
 
         // Calculate and display the total cost
         decimal totalCost = (decimal)order.CalculateTotalPrice();
         Console.WriteLine($"Total Cost Including Shipping: ${totalCost:F2}");
+
+        Console.WriteLine("Thank you for using the Online Ordering System!");
     }
 }
