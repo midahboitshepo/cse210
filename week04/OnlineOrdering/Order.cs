@@ -20,11 +20,11 @@ public class Order
         _products.Add(product);
     }
 
-// Calculate total price including shipping
+    // Calculate total price including shipping
     public double CalculateTotalPrice()
     {
         double total = 0;
-        
+
         foreach (var product in _products)
         {
             double shippingcost = 0;
@@ -40,7 +40,7 @@ public class Order
         }
         return total;
     }
-// Display order details
+    // Display order details
     public void DisplayOrderDetails()
     {
         Console.WriteLine("Order Details:");
@@ -55,6 +55,23 @@ public class Order
             Console.WriteLine();
         }
         double totalPrice = CalculateTotalPrice();
-        
+
+    }
+
+    public void GetShippingLabel()
+    {
+        Console.WriteLine("Shipping Label:");
+        Console.WriteLine($"Customer: {_customer.GetName()}");
+        Console.WriteLine("Address:");
+        _address.DisplayAddress();
+    }
+    
+    public void GetPackingLabel()
+    {
+        Console.WriteLine("Packing Label:");
+        foreach (var product in _products)
+        {
+            Console.WriteLine($"Product: {product.GetName()}, ID: {product.GetId()}");
+        }
     }
 }
