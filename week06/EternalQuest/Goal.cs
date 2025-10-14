@@ -1,8 +1,10 @@
-public class Goal
+public abstract class Goal
 {
-    private string _shortName;
-    private string _Description;
-    private int _Points;
+    protected string _shortName;
+    protected string _Description;
+    protected int _Points;
+
+    public int Points { get; internal set; }
 
     public Goal(string shortName, string description, int points)
     {
@@ -11,43 +13,16 @@ public class Goal
         _Points = points;
     }
 
-    public string GetShortName()
-    {
-        return _shortName;
-    }
+    public abstract void RecordEvent();
 
-    public string GetDescription()
-    {
-        return _Description;
-    }
 
-    public int GetPoints()
-    {
-        return _Points;
-    }
+    public abstract bool IsComplete();
 
-    public virtual void RecordEvent()
-    {
-        // This method can be overridden in derived classes
-    }
 
-    public virtual bool IsComplete()
-    {
-        return false; // Default implementation, can be overridden
-    }
+    public abstract string GetDetailsString();
 
-    public virtual string GetDetailsString()
-    {
-        return $"{_shortName} ({_Description})";
-    }
 
-    public virtual string GetStringRepresentation()
-    {
-        return $"{_shortName},{_Description},{_Points}";
-    }
+    public abstract string GetStringRepresentation();
+   
 
-    public virtual void DisplayGoal()
-    {
-        System.Console.WriteLine(GetDetailsString());
-    }
 }
